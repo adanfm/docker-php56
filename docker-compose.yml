@@ -1,0 +1,17 @@
+web:
+    build: .
+    ports:
+        - "80:80"
+    volumes:
+        - .:/var/www/html
+    links:
+        - mysql
+mysql:
+    image: mysql
+    ports:
+        - "3306:3306"
+    environment:
+        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_DATABASE=workshop_dev
+        - MYSQL_USER=workshop_dev
+        - MYSQL_PASSWORD=123
